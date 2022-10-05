@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-primary">
+    <nav class="navbar text-center">
         <h1 class="title" >Weather Dashboard</h1>
     </nav>
     <main>
@@ -19,13 +19,12 @@
             <form class="search-container">
               <div class="mb-3">
                   <label  class="form-label">Search for city</label>
-                  <input type="text" class="search-bar" id="">  
+                  <input type="text" class="search-bar" id="search-city" placeholder="Search for a city...">  
                   <button type="submit" class="searchBtn">Search</button>
                   <p>_________________</p>
-                  <div id="search-history">
-                    
-
-                  </div>
+                  <ul id="search-history">
+                
+                  </ul>
               </div>
           </form>
           </div>
@@ -36,14 +35,44 @@
             <p>Humidity:<span class="current-data" id="humidity"></span></p>
             <p>UV index:<span class="current-data" id="uv-index"></span></p>
 
-            <div class="container">
+            <div class="forecast">
               <h3 class="text-center">5-Day Forecast</h3>
               <div class="row">
-                <div class="fday1 col">col</div>
-                <div class="fday2 col">col</div>
-                <div class="fday3 col">col</div>
-                <div class="fday4 col">col</div>
-                <div class="fday5 col">col</div>
+                <div class="forecast-card col" id="fday1">
+                  <h4 id="forecast-date1"></h4>
+                  <p id="forecast-img1"></p>
+                  <p>Temp:<span id=temp-day1></span></p>
+                  <p>Wind:<span id=wind-day1></span></p>
+                  <p>Humidity:<span id="huimidity-day1"></span></p>
+                </div>
+                <div class="forecast-card col"  id="fday2">
+                  <h4 id="forecast-date2"></h4>
+                  <p id="forecast-img2"></p>
+                  <p>Temp:<span id=temp-day2></span></p>
+                  <p>Wind:<span id=wind-day2></span></p>
+                  <p>Humidity:<span id="huimidity-day2"></span></p>
+                </div>
+                <div class="forecast-card col"  id="fday3">
+                  <h4 id="forecast-date3"></h4>
+                  <p id="forecast-img3"></p>
+                  <p>Temp:<span id=temp-day3></span></p>
+                  <p>Wind:<span id=wind-day3></span></p>
+                  <p>Humidity:<span id="huimidity-day3"></span></p>
+                </div>
+                <div class="forecast-card col"  id="fday4">
+                  <h4 id="forecast-date4"></h4>
+                  <p id="forecast-img4"></p>
+                  <p>Temp:<span id=temp-day4></span></p>
+                  <p>Wind:<span id=wind-day4></span></p>
+                  <p>Humidity:<span id="huimidity-day4"></span></p>
+                </div>
+                <div class="forecast-card col"  id="fday5">
+                  <h4 id="forecast-date5"></h4>
+                  <p id="forecast-img5"></p>
+                  <p>Temp:<span id=temp-day5></span></p>
+                  <p>Wind:<span id=wind-day5></span></p>
+                  <p>Humidity:<span id="huimidity-day5"></span></p>
+                </div>
               </div>
           </div>
           

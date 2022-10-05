@@ -1,3 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: rgb(83, 123, 203);
+    background-image: linear-gradient(to right, rgb(83, 123, 203) , blue );
+}
+
 h1 {
     margin: 0px 30% 0 30%;
     color: white;
@@ -15,8 +24,17 @@ h1 {
 .searchBtn {
     background-color: rgb(83, 123, 203);
     color: white;
+    border-radius: 5px;
 }
 
 .current p {
     margin-left: -50%;
+}
+
+.forecast-card {
+    background-color: rgb(110, 156, 248);
+    border-radius: 5%;
+    color: white;
+    margin-right: 10px;
+
 }

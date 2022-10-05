@@ -1,0 +1,22 @@
+h1 {
+    margin: 0px 30% 0 30%;
+    color: white;
+    display: block;
+    width: 40%;
+
+
+}
+
+.search-container {
+    display: flex;
+    
+}
+
+.searchBtn {
+    background-color: rgb(83, 123, 203);
+    color: white;
+}
+
+.current p {
+    margin-left: -50%;
+}

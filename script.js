@@ -1,4 +1,4 @@
-var citySearched = $("#search-form")
+var citySearch = $("#search-form")
 var searchHistory = $("#search-history")
 
 var apiKey = "&appid=47a293b2c262948368bb05e085504ccd"
@@ -6,6 +6,8 @@ var weatherApi = "https://api.openweathermap.org/data/2.5/weather?q="
 var units = "&units=imperial"
 var uviApi = "https://api.openweathermap.org/data/2.5/uvi?"
 var forecastApi = "https://api.openweathermap.org/data/2.5/onecall?"
+
+let cityName = "milwaukee"
 
 var getWeather = function (cityName) {
     var currentWeatherApi = weatherApi + cityName + apiKey + units;
@@ -22,12 +24,28 @@ var getWeather = function (cityName) {
                 "@2x.png";
                 $(current-icon).attr("src", weatherIcon)
 
+                var lat = response.coord.lat;
+                var lon = response.coord.lon;
+
             })
         } else {
             alert("Please provide valid city")
         }
     })
-}
+};
+
+var getUvIndex = function (lat, lon) {
+    var uvApiUrl = weatherApi + apiKey + "&lat=" + lat + "&lon=" + lon + units;
+    
+    fetch(uvApiUrl)
+    .then(function (response) {
+        return response.json;
+
+    })
+    .then(function(response ) {
+        $("#uv-index").html(response.value)
+    })
+};
 
 
         

@@ -1,35 +1,33 @@
-// select elements from DOM
-    // form
-    // input
-var cityName = document.getElementById('city-name')
-var currentTemp = document.getElementById('temp')
-var currentWind = document.getElementById('wind')
-var currentHumidity = document.getElementById('humidity')
-var currentUvIndex = document.getElementById('uv-index')
-var cityInput = document.getElementById('search-city')
-var ApiKey = "&appid=47a293b2c262948368bb05e085504ccd"
-// listen for submit event
-    //get city out of input
-    // fetch city's weather
-        // show weather in card
-            //fetch five-day forecast for city
-                // show forecast in cards
+var citySearched = $("#search-form")
+var searchHistory = $("#search-history")
 
+var apiKey = "&appid=47a293b2c262948368bb05e085504ccd"
+var weatherApi = "https://api.openweathermap.org/data/2.5/weather?q="
+var units = "&units=imperial"
+var uviApi = "https://api.openweathermap.org/data/2.5/uvi?"
+var forecastApi = "https://api.openweathermap.org/data/2.5/onecall?"
 
+var getWeather = function (cityName) {
+    var currentWeatherApi = weatherApi + cityName + apiKey + units;
 
-var city = "milwaukee"
+    fetch(currentWeatherApi).then(function (response) {
+        if (response.ok) {
+            return response.json(),then(function (response) {
+                $("#city-name").html(response.name);
+                var todaysDate = response.dt;
+                var date = moment.unix(todaysDate).format("MM/DD/YY")
+                $("#date-today").html(date);
+                var weatherIcon =  "http://openweathermap.org/img/wn/" +
+                response.weather[0].icon +
+                "@2x.png";
+                $(current-icon).attr("src", weatherIcon)
 
-var renderCityWeather = function(city) {
-    event.preventDefault();
-
-    var fetchWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + ApiKey
-
-    fetch(fetchWeather).then(function(response) {
-        response.json().then(function(data) {
-            console.log(data);
-        });
-    });
-};
+            })
+        } else {
+            alert("Please provide valid city")
+        }
+    })
+}
 
 
         

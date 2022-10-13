@@ -48,6 +48,7 @@ var getUvIndex = function (lat, lon) {
 
     })
     .then(function(response ) {
+        $("#uv-index").removeClass()
         $("#uv-index").html(response.value);
         if (response.value < 3) {
             $("#uv-index").addClass("p-1 rounded bg-success text-white");
@@ -56,17 +57,17 @@ var getUvIndex = function (lat, lon) {
         } else {
             $("#uv-index").addClass("p-1 rounded bg-danger text-white");
         }
-    })
+    });
 };
 
 var getForecastData = function (lat,lon) {
 
-    var forecastApi = weatherApi + "lat=" + lat + "&lon=" + lon + apiKey + units;
-    fetch(forecastApi)
+    var forecastUrl = forecastApi + "lat=" + lat + "&lon=" + lon + apiKey + units;
+    fetch(forecastUrl)
     .then(function (response) {
         return response.json();
     })
-    .then (function  () {
+    .then (function  (response) {
         for (var i = 1; i < 6; i++) {
 
             var futuredates = response.daily[i].dt;
@@ -87,7 +88,7 @@ var getForecastData = function (lat,lon) {
 
 var searchHistoryBtn = function (btnText) {
     var btn = $("<button>").addClass("button-list").text(btnText).attr("type", "submit")
-    return btn
+    return btn;
 };
 
 
@@ -129,8 +130,8 @@ var saveCity = function (cityName) {
 var renderCityBtn = function (cityName) {
     var savedCity = JSON.parse(localStorage.getItem("weatherInfo"));
     if (savedCity.length == 1) {
-        var cityButton = searchHistoryBtn(cityName);
-        searchHistory.prepend(cityButton);
+        var prevCityBtn = searchHistoryBtn(cityName);
+        searchHistory.prepend(prevCityBtn);
     } else {
         for (var i = 1; i < savedCity.length; i++) {
             if (cityName.toLowerCase() == savedCity[i].toLowerCase()) {
@@ -138,23 +139,18 @@ var renderCityBtn = function (cityName) {
             }
         }
         if (searchHistory[0].childElementCount < maxCityList) {
-            var cityButton = searchHistoryBtn(cityName);
+            var prevCityBtn = searchHistoryBtn(cityName);
         } else {
             searchHistory[0].removeChild(saveCity[0].lastChild);
-            var cityButton = searchHistoryBtn(cityName)
+            var prevCityBtn = searchHistoryBtn(cityName)
         }
-        searchHistory.prepend(cityButton)
+        searchHistory.prepend(prevCityBtn)
         $(":button.button-list").on("click", function () {
             buttonClick(event);
         });
     }
 };
 
-var buttonClick = function (event) {
-    event.preventDefault();
-    var cityName = event.target.textContent.trim();
-    getWeather(cityName); 
-}
 
 renderSearchHistory();
 
@@ -167,6 +163,11 @@ var submitCityForm = function (event) {
         renderCityBtn(cityName)
     }
 };
+var buttonClick = function (event) {
+    event.preventDefault();
+    var cityName = event.target.textContent.trim();
+    getWeather(cityName); 
+}
 
 $("#search-city-button").on("submit", function() {
     submitCityForm()

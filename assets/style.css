@@ -20,6 +20,9 @@ h1 {
     display: flex;
 
 }
+.list-group-item {
+    border: none;
+}
 
 .searchBtn {
     background-color: rgb(83, 123, 203);

@@ -43,5 +43,33 @@ let displayWeather = function(weatherData) {
     $("#wind").text("Wind Speed: " + weatherData.wind.speed.toFixed(1) + "mph");
     $("#humidity").text("Humidity: " + weatherData.main.humidity + "%");
 
-    fetch
+    fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + weatherData.coord.lat + "&lon" + weatherData.coord.lon + "&appid=47a293b2c262948368bb05e085504ccd")
+
+    .then(function(response){
+        response.json().then(function(data) {
+
+            $("#uv-index").text(data.value);
+
+            if(data >= 11) {
+                $("#uv-index").css("background-color", "#6c49cb")
+            } else if (data.value < 11 && data.value >= 8) {
+                $("#uv-index").css("background-color", "#d90011")
+            } else if (data.value < 8 && data.value >= 6) {
+                $("#uv-index").css("background-color", "#f95901")
+            } else if (data.value < 6 && data.value >= 3) {
+                $("#uv-index").css("background-color", "#f7e401")
+            } else {
+                $("#uv-index").css("background-color", "#299501")
+            }
+        })
+    });
+
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + weatherData.name + "&appid=47a293b2c262948368bb05e085504ccd")
+
+    .then(function(response) {
+        response.json().then(function(data) {
+
+            $("").empty();
+        })
+    })
 }

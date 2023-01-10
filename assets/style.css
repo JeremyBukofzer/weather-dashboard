@@ -1,48 +1,37 @@
 * {
-    box-sizing: border-box;
+    text-align: center;
 }
 
-nav {
-    background-color: rgb(83, 123, 203);
-    background-image: linear-gradient(to right, rgb(83, 123, 203), blue);
+.navbar {
+    background-color: rgb(40, 122, 209);
+    
 }
 
-h1 {
-    margin: 0px 30% 0 30%;
+.title {
     color: white;
-    display: block;
-    width: 40%;
-
-
 }
 
-.search-container {
-    display: flex;
-
+.col {
+    width: fit-content;
+    scroll-margin-inline: 350px ;
 }
+
+.searchBtn {
+    color: white;
+    background-color: rgb(29, 100, 205);
+    border-style: none;
+    border-radius: 10%;
+    margin:0px 62.75px 0px 62.75px ; 
+}
+
+
+.card {
+    max-height: fit-content;
+}
+
+
 .list-group-item {
     border: none;
 }
 
-.searchBtn {
-    background-color: rgb(83, 123, 203);
-    color: white;
-    border-radius: 5px;
-}
 
-.current p {
-    margin-left: -50%;
-    
-}
-
-.forecast {
-   margin-left: 20%; 
-}
-
-.forecast-card {
-    background-color: rgb(110, 156, 248);
-    border-radius: 5%;
-    color: white;
-    margin-right: 10px;
-
-}

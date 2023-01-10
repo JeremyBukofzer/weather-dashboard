@@ -22,73 +22,31 @@
         <div class="col col-lg-1">
           <form class="search-container" id=search-form>
             <div class="mb-3">
-              <label class="form-label">Search for city</label>
+              <label class="form-label"></label>
               <input type="text" class="search-bar" id="search-city" placeholder="Search for a city...">
+              <br>
               <button type="submit" class="searchBtn" id="search-city-button">Search</button>
             </div>
           </form>
-          <ul class="list-group" id="search-history">
+          <ul class="container list-group vertical-scrollable" id="search-history">
           </ul>
         </div>
 
         <div class="current col">
           <h2><span id="city-name"></span><span id="date-today"></span></h2>
           <img class="weather-img" id="currrent-icon" src="">
-          <p class="current-data">Temp:<span id="temp" </p>
-              <p class="current-data">Wind:<span id="wind"></span></p>
-              <p class="current-data">Humidity:<span id="humidity"></span></p>
-              <p class="current-data">UV index:<span id="uv-index"></span></p>
+          <p class="current-data"><span id="temp" </p>
+              <p class="current-data"><span id="wind"></span></p>
+              <p class="current-data"><span id="humidity"></span></p>
+              <p class="current-data"><span id="uv-index"></span></p>
 
 
               <div>
-                <h2 class="card-title mt-3">5-Day Forecast:</h2>
+                <h2 class="card-title mt-3"></h2>
                 <div class="row justify-content-between" id="five-day">
                   <!-- 5 day Forecast will be generated here -->
                 </div>
               </div>
-
-
-
-              <!-- <div class="forecast" id="">
-            <h3 class="text-center">5-Day Forecast</h3>
-            <div class="row">
-              <div class="forecast-card col" id="fday1">
-                <h4 id="forecast-date1"></h4>
-                <p id="forecast-img1"></p>
-                <p>Temp:<span id=temp-day1></span></p>
-                <p>Wind:<span id=wind-day1></span></p>
-                <p>Humidity:<span id="huimidity-day1"></span></p>
-              </div>
-              <div class="forecast-card col" id="fday2">
-                <h4 id="forecast-date2"></h4>
-                <p id="forecast-img2"></p>
-                <p>Temp:<span id=temp-day2></span></p>
-                <p>Wind:<span id=wind-day2></span></p>
-                <p>Humidity:<span id="huimidity-day2"></span></p>
-              </div>
-              <div class="forecast-card col" id="fday3">
-                <h4 id="forecast-date3"></h4>
-                <p id="forecast-img3"></p>
-                <p>Temp:<span id=temp-day3></span></p>
-                <p>Wind:<span id=wind-day3></span></p>
-                <p>Humidity:<span id="huimidity-day3"></span></p>
-              </div>
-              <div class="forecast-card col" id="fday4">
-                <h4 id="forecast-date4"></h4>
-                <p id="forecast-img4"></p>
-                <p>Temp:<span id=temp-day4></span></p>
-                <p>Wind:<span id=wind-day4></span></p>
-                <p>Humidity:<span id="huimidity-day4"></span></p>
-              </div>
-              <div class="forecast-card col" id="fday5">
-                <h4 id="forecast-date5"></h4>
-                <p id="forecast-img5"></p>
-                <p>Temp:<span id=temp-day5></span></p>
-                <p>Wind:<span id=wind-day5></span></p>
-                <p>Humidity:<span id="huimidity-day5"></span></p>
-              </div>
-            </div>
-          </div> -->
 
         </div>
       </div>
